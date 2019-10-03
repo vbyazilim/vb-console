@@ -1,5 +1,5 @@
 ![Python](https://img.shields.io/badge/python-3.7.3-green.svg)
-[![PyPI version](https://badge.fury.io/py/django-vb-console.svg)](https://badge.fury.io/py/django-vb-console)
+[![PyPI version](https://badge.fury.io/py/vb-console.svg)](https://badge.fury.io/py/vb-console)
 
 # vb-console
 
