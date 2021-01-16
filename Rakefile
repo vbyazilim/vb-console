@@ -1,3 +1,4 @@
+desc "Default task => :install"
 task :default => [:install]
 
 desc "Remove/Delete build..."
@@ -36,4 +37,9 @@ task :bump, [:revision] do |t, args|
   args.with_defaults(revision: "patch")
   abort "Please provide valid revision: #{AVAILABLE_REVISIONS.join(',')}" unless AVAILABLE_REVISIONS.include?(args.revision)
   system "bumpversion #{args.revision}"
+end
+
+desc "Run test"
+task :test do
+  system "python tests/test_package.py"
 end
