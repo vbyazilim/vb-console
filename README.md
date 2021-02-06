@@ -202,6 +202,60 @@ currently the value is set to `__main__`:
 Valid colors are: `black`, `red`, `green`, `yellow`, `blue`, `magenta`,
 `cyan`, `white` and `default`
 
+Here are some examples for configuration usage:
+
+```python
+from console import console
+
+# colorized with header/footer
+console = console(source=__name__, basic=False, colored=True)
+
+
+from console import console
+
+# custom colors without header/footer
+console = console(source=__name__, colored=True, dir_colors=dict(keys='red', values='yellow'))
+```
+
+Quick tip; `console = console(source=__name__, basic=False, colored=True)` kills/overrides
+`console` from import. I mean;
+
+```python
+>>> from console import console
+>>> console = console(source=__name__, enabled=True)
+>>> console('hello')
+('hello',)
+
+# now, let’s try to re-define console
+>>> console = console(source=__name__, enabled=True, colored=True)
+>>> console(console)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'NoneType' object is not callable
+```
+
+If you want to keep `console` from import statement;
+
+```python
+>>> from console import console as base_console
+>>> console = base_console(source=__name__, enabled=True)
+>>> console('hello')
+('hello',)
+>>> console = base_console(source=__name__, enabled=True, colored=True)
+>>> console(console)
+(<console.console.Console object at 0x10277cf40>,)
+>>> console.dir([])
+{   'internal_methods':  [   '__add__', '__class__', '__contains__', '__delattr__', '__delitem__',
+                            '__dir__', '__doc__', '__eq__', '__format__', '__ge__',
+                            '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__',
+                            '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__',
+                            '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__',
+                            '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__',
+                            '__setitem__', '__sizeof__', '__str__', '__subclasshook__'],
+    'public_attributes':  [   'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop',
+                             'remove', 'reverse', 'sort']}
+>>> 
+```
 
 ---
 
