@@ -1,5 +1,8 @@
 [![Build Status](https://travis-ci.org/vbyazilim/vb-console.svg?branch=master)](https://travis-ci.org/vbyazilim/vb-console)
+![Python](https://img.shields.io/badge/python-3.7.3-green.svg)
+![Python](https://img.shields.io/badge/python-3.8.0-green.svg)
 ![Python](https://img.shields.io/badge/python-3.8.5-green.svg)
+![Python](https://img.shields.io/badge/python-3.9.1-green.svg)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![PyPI version](https://badge.fury.io/py/vb-console.svg)](https://badge.fury.io/py/vb-console)
 
