@@ -107,14 +107,18 @@ class Console:
             public_attributes = list(filter(lambda i: not i.startswith('_'), dir_arg))
 
             if internal_methods:
+                internal_methods.sort()
                 payload.update(internal_methods=internal_methods)
             if private_methods:
+                private_methods.sort()
                 payload.update(private_methods=private_methods)
             if public_attributes:
+                public_attributes.sort()
                 payload.update(public_attributes=public_attributes)
 
             if hasattr(arg, '__dict__'):
-                payload.update(data_attributes=list(arg.__dict__.keys()))
+                data_attributes = list(arg.__dict__.keys()).sort()
+                payload.update(data_attributes=data_attributes)
 
             if hasattr(arg.__class__, '__dict__'):
                 class_dict = arg.__class__.__dict__
@@ -142,14 +146,19 @@ class Console:
                             class_variables_list.append(k)
 
                 if properties_list:
+                    properties_list.sort()
                     payload.update(properties=properties_list)
                 if static_methods_list:
+                    static_methods_list.sort()
                     payload.update(static_methods=static_methods_list)
                 if class_methods_list:
+                    class_methods_list.sort()
                     payload.update(class_methods=class_methods_list)
                 if methods_list:
+                    methods_list.sort()
                     payload.update(methods=methods_list)
                 if class_variables_list:
+                    class_variables_list.sort()
                     payload.update(class_variables=class_variables_list)
 
             options.update(source=source)

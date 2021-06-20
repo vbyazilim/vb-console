@@ -29,6 +29,18 @@ class MyClass:
     def admin(self):
         return True
 
+    @property
+    def badmin(self):
+        return True
+
+    @property
+    def cadmin(self):
+        return True
+
+    @property
+    def xxadmin(self):
+        return True
+
     @staticmethod
     def statik():
         return 'Static'
