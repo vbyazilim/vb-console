@@ -6,6 +6,24 @@ from io import StringIO
 import console as console_main
 
 
+class KlassForSort:
+    """Example class"""
+
+    attr1 = 1
+    Attr2 = 2
+    Name2 = 'name2'
+
+    def __init__(self):
+        self.name = 'Name'
+
+    def get_name_and_method(self):
+        return self.name + ' get_name_and_method'
+
+    @property
+    def admin1(self):
+        return True
+
+
 class MyClass:
     """Example class"""
 
@@ -88,6 +106,14 @@ class TestVBConsole(unittest.TestCase):
         self.assertTrue('properties' in self.buffer.getvalue())
         self.assertTrue('public_attributes' in self.buffer.getvalue())
         self.assertTrue('static_methods' in self.buffer.getvalue())
+
+    def test_sorted_output(self):
+        class_instance = KlassForSort()
+        self.console.dir(class_instance)
+        self.assertTrue(
+            "['admin1', 'attr1', 'Attr2', 'get_name_and_method', 'name', 'Name2']"
+            in self.buffer.getvalue()
+        )
 
 
 class TestVBConsoleWithColor(unittest.TestCase):
