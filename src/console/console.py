@@ -22,6 +22,7 @@ class Console:
         'seperator_char',
         'colored',
         'dir_colors',
+        'out_color',
         'header_color',
         'footer_color',
         'basic',
@@ -34,6 +35,7 @@ class Console:
         seperator_char=SEPERATOR_CHAR,
         colored=False,
         dir_colors=dict(keys='yellow', values='default'),
+        out_color='yellow',
         header_color='green',
         footer_color='green',
         basic=True,
@@ -189,6 +191,11 @@ class Console:
         formated = pretty_print.pformat(elements)
 
         if self.options.get('colored') is True:
+            out_color = self.colors.get(
+                self.options.get('out_color', 'green'),
+            )
+            formated = f'\033[3{out_color}m{elements}\033[0m'
+
             if self.options.get('basic', True) is False:
                 header_color = self.colors.get(
                     self.options.get('header_color', 'green'),

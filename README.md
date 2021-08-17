@@ -194,6 +194,7 @@ currently the value is set to `__main__`:
 - `seperator_char`: Default is: `.`
 - `colored`: Default is `False`. Set this to `True` for colored output
 - `dir_colors`: This is a `dict`, default is `dict(keys='yellow', values='default')`
+- `out_color`: Default is `yellow`
 - `header_color`: Default is `green`
 - `footer_color`: Default is `green`
 - `basic`: Default is `True`. In basic mode, header and footer are not available
@@ -309,6 +310,12 @@ All PR’s are welcome!
 ---
 
 ## Change Log
+
+**2021-08-17**
+
+- Add `out_color` option. `console('foo')` will be green by default. Use
+  `console = console(source=__name__, enabled=True, colored=True, out_color='white')`
+  for white output!
 
 **2021-02-05**
 
