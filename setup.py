@@ -11,7 +11,7 @@ with open(os.path.join(CURRENT_WORKING_DIRECTORY, 'README.md')) as fp:
 
 setup(
     name='vb-console',
-    version='1.1.1',
+    version='1.1.2',
     description='Logger and object inspector for Python',
     long_description=README,
     long_description_content_type='text/markdown',
